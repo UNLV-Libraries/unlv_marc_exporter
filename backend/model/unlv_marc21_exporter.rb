@@ -452,7 +452,7 @@ class MARCModel < ASpaceExport::ExportModel
     end
   end
 
-  def handle_ead_loc(ead_loc)
+  def handle_ead_loc(ead_loc, publish = nil, uri = nil, slug = nil)
     if( MarcExportSettings.m_export_settings['tag_555'])
       text = if MarcExportSettings.m_export_settings['tag_555_ss_1'].nil? then "Finding aid online:" else MarcExportSettings.m_export_settings['tag_555_ss_1'] end
       df('555', '8', ' ').with_sfs(
